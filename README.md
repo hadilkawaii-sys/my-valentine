@@ -2,75 +2,62 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>💌 Valentine?</title>
+<title>Valentine 💖</title>
 
 <style>
-  body {
-    background: linear-gradient(135deg, #ffe0ec, #ffd6e8);
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
-  }
+body {
+  background: #ffe6ee;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 100px;
+}
 
-  h1 { margin-top: 80px; color: #d6336c; font-size: 36px; }
-  p { font-size: 20px; color: #6c757d; }
+h1 {
+  color: #d6336c;
+}
 
-  button {
-    padding: 15px 25px; font-size: 18px; border: none; border-radius: 15px;
-    cursor: pointer; position: absolute;
-  }
+button {
+  padding: 15px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin: 20px;
+}
 
-  #yes { background-color: #ff4d6d; color: white; left: 40%; top: 60%; }
-  #no { background-color: #adb5bd; color: white; left: 55%; top: 60%; }
+#yes {
+  background-color: #ff4d6d;
+  color: white;
+}
 
-  .heart { position: absolute; font-size: 24px; animation: float 6s infinite; opacity: 0.8; }
-
-  @keyframes float {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-800px); opacity: 0; }
-  }
+#no {
+  background-color: #999;
+  color: white;
+  position: absolute;
+}
 </style>
 </head>
 
 <body>
 
 <h1>💖 Ayouba, will you be my Valentine? 💖</h1>
-<p>I promise to make you smile 😊</p>
 
-<button id="yes">Yes 💕</button>
-<button id="no">No 🙈</button>
+<button id="yes" onclick="yesClick()">Yes 💕</button>
+<button id="no" onmouseover="moveNo()">No 🙈</button>
 
 <script>
-  // زر Yes
-  document.getElementById("yes").onclick = function() {
-    document.body.innerHTML = 
-      <h1 style="margin-top:150px;color:#d6336c;">💘 Yayyy! 💘</h1>
-      <p style="font-size:22px;">I knew you would say YES ❤️</p>
-      <p>Happy Valentine's Day 😌✨</p>
-    ;
-  }
+function yesClick() {
+  document.body.innerHTML =
+    "<h1>💘 Yayyy! 💘</h1><p>You just made my heart happy ❤️</p>";
+}
 
-  // زر No يهرب
-  document.getElementById("no").onmouseover = function() {
-    const button = document.getElementById("no");
-    const x = Math.random() * (window.innerWidth - 100);
-    const y = Math.random() * (window.innerHeight - 100);
-    button.style.left = x + "px";
-    button.style.top = y + "px";
-  }
-
-  // قلوب متحركة
-  setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerText = "💖";
-    heart.style.left = Math.random() * window.innerWidth + "px";
-    heart.style.top = "100%";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 6000);
-  }, 400);
+function moveNo() {
+  var x = Math.random() * (window.innerWidth - 100);
+  var y = Math.random() * (window.innerHeight - 100);
+  var btn = document.getElementById("no");
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
+}
 </script>
 
 </body>
